@@ -1,3 +1,15 @@
+/*******************************************************************************
+*                                                                              *
+*  Maria Esther Carrillo                                                       *
+*  10-10122                                                                    *
+*                  TTTTT  H  H  RRR    EEEE   AA   DDD    SS                   *
+*                    T    H  H  R  R   E     A  A  D  D  S                     *
+*                    T    HHHH  RRR    EEE   AAAA  D  D   SS                   *
+*                    T    H  H  R  R   E     A  A  D  D     S                  *
+*                    T    H  H  R   R  EEEE  A  A  DDD    SS                   *
+*                                                                              *
+*******************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -118,7 +130,7 @@ void *intermedio(void* ptr) {
     arg_der.nivel   = nivel - 1;
 
     // hilos
-    if (nivel == 1) {           // el siguiente es hoja
+    if (nivel == 1) {           // el siguiente nivel es hoja
         chequeo = pthread_create(&izquierdo, NULL, &hoja, (void*) &arg_izq);
         if (chequeo != 0) {
             printf("error en la creación de hilos\n");
@@ -130,7 +142,7 @@ void *intermedio(void* ptr) {
             printf("error en la creación de hilos\n");
             exit(-1);
         }
-    } else {                    // el siguiente es intermedio
+    } else {                    // el siguiente nivel es intermedio
         chequeo = pthread_create(&izquierdo, NULL, &intermedio, (void*) &arg_izq);
         if (chequeo != 0) {
             printf("error en la creación de hilos\n");
