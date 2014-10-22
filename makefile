@@ -1,5 +1,5 @@
 hilos: clean
-	gcc ordenArchivo-t.c -o ordenArchivo-t
+	gcc -pthread ordenArchivo-t.c -o ordenArchivo-t
 
 clean:
 	rm ordenArchivo-t || true
